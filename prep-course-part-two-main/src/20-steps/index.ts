@@ -19,9 +19,9 @@
  *            '####'
  */
 
-function steps(n: number) {
-  let spaceCount = n - 1;
-  for (let i = 1; i <= n; i++) {
+function steps(inputNumber: number) {
+  let spaceCount: number = inputNumber - 1;
+  for (let i = 1; i <= inputNumber; i++) {
     let pyramidRow = "#".repeat(i) + " ".repeat(spaceCount);
     console.log(pyramidRow);
     spaceCount--;

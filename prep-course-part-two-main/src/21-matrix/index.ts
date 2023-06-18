@@ -38,12 +38,47 @@ class Matrix {
   constructor(private matrix: string) {}
 
   get rows() {
-    return [];
+    
+    // split string into array from "\n"
+    const rows: string[] = this.matrix.split("\n"); 
+    
+    // Convert each row to an integer array
+    const outputArray: number[][] = rows.map(row => {
+      const rowValues = row.split(" "); 
+      return rowValues.map(value => parseInt(value));
+    });
+    
+
+    return outputArray;
   }
 
   get columns() {
-    return [];
+
+    // split string into array from "\n"
+    const lines: string[] = this.matrix.split("\n");
+    const convertedNumberArr: number[][] = [];
+  
+    // loop through the main array, convert each array value into sub-array,
+    // convert sub-array values to integers and return them.
+    for (let i = 0; i < lines.length; i++) {
+      const valuesArray: string[] = lines[i].trim().split(" ");
+  
+      for (let j = 0; j < valuesArray.length; j++) {
+        const value: string = valuesArray[j];
+        const numValue: number = parseInt(value);
+  
+        if (!convertedNumberArr[j]) {
+          convertedNumberArr[j] = [];
+        }
+        convertedNumberArr[j].push(numValue);
+        
+      }
+    }
+  
+    return convertedNumberArr;
   }
+  
+
 }
 
 export { Matrix };

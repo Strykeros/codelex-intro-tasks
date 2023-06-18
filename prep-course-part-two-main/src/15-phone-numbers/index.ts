@@ -29,35 +29,43 @@
 
 class PhoneNumber {
   phoneNumber: string = "";
+
   constructor(input: string) {
     this.phoneNumber = input;
   }
 
   number() {
-    /*if(this.phoneNumber.length === 9){
+    let cleanPhone = this.phoneNumber.replace(/[()-. ]/g, "");
+    let letters = /[a-z]/i.test(cleanPhone);
+    let punctuation = /[^\w\s.]/.test(cleanPhone);
+    let areaCode = cleanPhone.slice(0, 3);
+    let exchangeCode = cleanPhone.slice(3, 6);
 
-    }*/
-
-    let cleanPhone = this.phoneNumber.replace(/[()+-.a-z ]/g, "");
-    let letters = /[a-z]/.test(cleanPhone);
-    let dirtyNum = /[()+-. ]/g;
-
-    if (letters) {
+    if (letters || punctuation || !cleanPhone.match(/[0-9]+/)) {
       return null;
     }
-    if (this.phoneNumber.match(dirtyNum) && !letters) {
-      return cleanPhone;
-    }
-    if (cleanPhone.length < 9 && !letters) {
-      return cleanPhone;
-    }
-    if (cleanPhone.length === 11 && cleanPhone.startsWith("1") && !letters) {
-      let noCountryCode = cleanPhone.replace("1", "");
-      return noCountryCode;
-    } else {
+
+    if (cleanPhone.length === 9) {
       return null;
     }
+
+    if (cleanPhone.length === 11 && cleanPhone.startsWith("1") || this.phoneNumber.startsWith("+")) {
+      if (areaCode.startsWith("0") || areaCode.startsWith("1") || exchangeCode.startsWith("0") || exchangeCode.startsWith("1") || !this.phoneNumber.startsWith("+")) {
+        return null;
+      }
+      return cleanPhone;
+    }
+
+    if (cleanPhone.length === 10 && !cleanPhone.startsWith("1")) {
+      if (areaCode.startsWith("0") || areaCode.startsWith("1") || exchangeCode.startsWith("0") || exchangeCode.startsWith("1")) {
+        return null;
+      }
+      return cleanPhone;
+    }
+
+    return null;
   }
 }
+
 
 export { PhoneNumber };
