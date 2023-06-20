@@ -10,7 +10,9 @@
  */
 
 function vowels(s: string) {
-  let matchedLetters = s.match(/[aeiou]/gi);
+  // checks if there are any vowels using regex,
+  // and returns the number of vowels in the input string.
+  let matchedLetters: RegExpMatchArray | null = s.match(/[aeiouy]/gi);
   return matchedLetters === null ? 0 : matchedLetters.length;
 }
 

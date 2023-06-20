@@ -5,9 +5,12 @@
  */
 
 function secondLargest(array: number[]) {
-  let sortedArray = array.sort(function (a, b) {
+  
+  // Sort the array in descending order using a compare function
+  let sortedArray: number[] = array.sort(function (a, b) {
     return b - a;
   });
+  
   return sortedArray[1];
 }
 

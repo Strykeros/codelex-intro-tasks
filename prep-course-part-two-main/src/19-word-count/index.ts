@@ -9,12 +9,14 @@
  *  free: 1
  */
 
-interface Counts {
+// Custom data type
+interface counts {
   [key: string]: number;
 }
 
 class Words {
-  count(str: string): Counts {
+  // Counts the occurrences of each word in a given string.
+  count(str: string): counts {
     return str
       .trim()
       .toLowerCase()
@@ -22,7 +24,7 @@ class Words {
       .reduce((countsResult, word) => {
         countsResult[word] = (countsResult[word] || 0) + 1;
         return countsResult;
-      }, Object.create(null) /*{} as Counts*/);
+      }, Object.create(null));
   }
 }
 

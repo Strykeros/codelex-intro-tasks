@@ -17,6 +17,10 @@
  */
 
 function fizzBuzz(n: number) {
+
+  // Iterates through numbers from 1 to n and checks if the loop number becomes zero,
+  // when divided by 3 and/or 5 and prints out the corresponding text.
+
   for (let i = 1; i <= n; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       console.log("fizzbuzz");

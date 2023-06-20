@@ -12,6 +12,11 @@
  */
 
 function validate(n: number) {
+
+  // checks if the input number is an Armstrong number
+  // by calculating the sum of its digits raised to the power of the number of digits, 
+  // and then compares it with the original number. 
+
   let numberOfDigits: number = n.toString().length;
   let sum: number = 0;
   let temp: number = n;

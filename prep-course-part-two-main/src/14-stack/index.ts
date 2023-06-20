@@ -21,14 +21,17 @@ class Stack {
     this.array = [];
   }
 
+  // inserts the input number in array
   push(n: number) {
     this.array.push(n);
   }
 
+  // removes the last number from array
   pop() {
     return this.array.pop();
   }
 
+  // gets the the last number from array
   peek() {
     return this.array[this.array.length - 1];
   }

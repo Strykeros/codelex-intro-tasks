@@ -10,7 +10,7 @@ function parse(input: string) {
   // split sentence into words
   const words = input.replace("_", "").split(/[ -]/g);
   // go through each word
-  let acronym = "";
+  let acronym: string = "";
   words.forEach((word) => {
     const firstChar = word.charAt(0).toUpperCase();
     acronym = acronym + firstChar;

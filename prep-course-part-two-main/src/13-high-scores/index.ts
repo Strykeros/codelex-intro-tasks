@@ -11,10 +11,12 @@ class HighScores {
     this.scores = scores;
   }
 
+  // returns last score from arrau
   get latest() {
     return this.scores[this.scores.length - 1];
   }
 
+  // returns the max score from the array
   get personalBest() {
     let maxScore = this.scores[0];
     for (let i = 1; i < this.scores.length; i++) {
@@ -25,6 +27,7 @@ class HighScores {
     return maxScore;
   }
 
+  // returns 3 highest scores from the array
   get personalTopThree() {
     const sortedScores = [...this.scores];
     sortedScores.sort(function (a, b) {

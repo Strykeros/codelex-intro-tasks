@@ -13,13 +13,19 @@
  */
 
 function longestWord(sen: string) {
-  let words = sen.split(" ");
+
+  // Converts the input sentence into array,
+  // removes any punctuation, sorts the word array,
+  // by placing the longest words at the beginning of the array,
+  // and returns the first word in the array.
+
+  let words: string[] = sen.split(" ");
   const punctuation = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
   let strippedWords: string[] = [];
   words.forEach((word) => {
     strippedWords.push(word.replace(punctuation, ""));
   });
-  let sortedWords = strippedWords.sort((a, b) => {
+  let sortedWords: string[] = strippedWords.sort((a, b) => {
     return b.length - a.length;
   });
 

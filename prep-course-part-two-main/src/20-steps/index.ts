@@ -19,6 +19,7 @@
  *            '####'
  */
 
+// Prints a step pattern using "#" and spaces.
 function steps(inputNumber: number) {
   let spaceCount: number = inputNumber - 1;
   for (let i = 1; i <= inputNumber; i++) {

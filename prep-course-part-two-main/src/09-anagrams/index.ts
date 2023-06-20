@@ -13,6 +13,9 @@
  */
 
 function anagrams(stringA: string, stringB: string) {
+  // removes spaces and punctuation, sorts both strings, 
+  // and checks if they are the same.
+
   let cleanStrA: string = stringA.toLowerCase().replace(/[^a-zA-Z]/g, "");
   let cleanStrB: string = stringB.toLowerCase().replace(/[^a-zA-Z]/g, "");
 

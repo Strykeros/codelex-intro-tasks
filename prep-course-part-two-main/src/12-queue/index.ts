@@ -14,10 +14,13 @@
 
 class Queue {
   elements: number[] = [];
+
+  // adds the input number at the end of the array
   add(n: number) {
     return this.elements.push(n);
   }
 
+  // removes the first number from the array
   remove() {
     return this.elements.shift();
   }

@@ -11,7 +11,9 @@
  */
 
 function isEven(n: number) {
-  let evenNum = (n & 1) === 0 ? true : false;
+  // checks if the input number divided by 1 is zero,
+  // and returns true or false. 
+  let evenNum: boolean = (n & 1) === 0 ? true : false;
   return evenNum;
 }
 

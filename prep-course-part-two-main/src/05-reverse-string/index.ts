@@ -11,6 +11,8 @@
  */
 
 function reverse(text: string) {
+  // removes whitespaces at the start and the end of the text,
+  // converts text to array, reverses it, and converts back to string.
   text.trim();
   return text.split("").reverse().join("");
 }

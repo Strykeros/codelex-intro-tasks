@@ -27,6 +27,7 @@
  * Note: As this exercise only deals with telephone numbers used in NANP-countries, only 1 is considered a valid country code.
  */
 
+
 class PhoneNumber {
   phoneNumber: string = "";
 
@@ -34,29 +35,41 @@ class PhoneNumber {
     this.phoneNumber = input;
   }
 
-  number() {
-    let cleanPhone = this.phoneNumber.replace(/[()-. ]/g, "");
-    let letters = /[a-z]/i.test(cleanPhone);
-    let punctuation = /[^\w\s.]/.test(cleanPhone);
-    let areaCode = cleanPhone.slice(0, 3);
-    let exchangeCode = cleanPhone.slice(3, 6);
+  // ***WARNING!!!***
+  // SPAGHETTI CODE AHEAD!!!
 
+  number() {
+    let cleanPhone: string = this.phoneNumber.replace(/[()-. ]/g, "");
+    let letters: boolean = /[a-z]/i.test(cleanPhone);
+    let punctuation: boolean = /[^\w\s.]/.test(cleanPhone);
+
+    // Extract the area code and exchange code from the phone number
+    let areaCode: string = cleanPhone.slice(0, 3);
+    let exchangeCode: string = cleanPhone.slice(3, 6);
+
+    // Check for invalid phone number conditions and return null if any are found
     if (letters || punctuation || !cleanPhone.match(/[0-9]+/)) {
       return null;
     }
 
+    // Check if the phone number is a length of 9
     if (cleanPhone.length === 9) {
       return null;
     }
 
-    if (cleanPhone.length === 11 && cleanPhone.startsWith("1") || this.phoneNumber.startsWith("+")) {
+    // Check if the phone number has a length of 11 and starts with "1" or "+"
+    if (cleanPhone.length === 11 && (cleanPhone.startsWith("1") || this.phoneNumber.startsWith("+"))) {
+      // Check if the area code or exchange code starts with "0" or "1",
+      // or if the phone number doesn't start with "+"
       if (areaCode.startsWith("0") || areaCode.startsWith("1") || exchangeCode.startsWith("0") || exchangeCode.startsWith("1") || !this.phoneNumber.startsWith("+")) {
         return null;
       }
       return cleanPhone;
     }
 
+    // Check if the phone number has a length of 10 and doesn't start with "1"
     if (cleanPhone.length === 10 && !cleanPhone.startsWith("1")) {
+      // Check if the area code or exchange code starts with "0" or "1"
       if (areaCode.startsWith("0") || areaCode.startsWith("1") || exchangeCode.startsWith("0") || exchangeCode.startsWith("1")) {
         return null;
       }

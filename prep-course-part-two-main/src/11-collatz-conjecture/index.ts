@@ -23,19 +23,22 @@
  */
 
 function steps(n: number) {
-  let calcTime: number = 0;
+  let calcSteps: number = 0;
 
-  if (n > 0 && Number.isInteger(n)) {
+  // checks if the input number is bigger than 0, increases "calcSteps" variable number after each calculation
+  // and returns the "calcSteps" variable.
+  // Othervise, throws an exception, that the input number is not poitive.
+  if (n > 0) {
     while (n !== 1) {
       if (n % 2 === 0) {
         n = n / 2;
-        calcTime++;
-      } else if (n % 2 !== 0) {
+        calcSteps++;
+      } else {
         n = n * 3 + 1;
-        calcTime++;
+        calcSteps++;
       }
     }
-    return calcTime;
+    return calcSteps;
   } else {
     throw new Error("Only positive numbers are allowed");
   }

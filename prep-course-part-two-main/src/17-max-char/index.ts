@@ -9,12 +9,15 @@
  * maxChar("apple 1231111") === "1"
  */
 
-function maxChar(str: string) {
-  let max = 0;
-  let commonChar = "";
-  str.split("").forEach(function (char) {
-    if (str.split(char).length > max) {
-      max = str.split(char).length;
+function maxChar(inputStr: string) {
+  let max: number = 0;
+  let commonChar: string = "";
+
+  // Split the input string into an array of individual characters, iterate over each character
+  // and return the most common char.
+  inputStr.split("").forEach(function (char) {
+    if (inputStr.split(char).length > max) {
+      max = inputStr.split(char).length;
       commonChar = char;
     }
   });

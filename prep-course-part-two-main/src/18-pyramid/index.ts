@@ -17,10 +17,13 @@
  */
 
 function pyramid(n: number) {
+
+  // prints out a hashtag pyramid 
+  // by using calculated repeat functions for 3 strings
   for (let i = 1; i <= n; i++) {
-    let str = " ".repeat(n - i);
-    let repeatCount = i * 2 - 1;
-    let str2 = "#".repeat(repeatCount);
+    let str: string = " ".repeat(n - i);
+    let repeatCount: number = i * 2 - 1;
+    let str2: string = "#".repeat(repeatCount);
     console.log(str + str2 + str);
   }
 }

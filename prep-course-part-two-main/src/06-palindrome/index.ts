@@ -14,6 +14,7 @@
  */
 
 function palindrome(str: string) {
+  // reverses the input string in a new var, and checks if it matches the input string.
   let reversedStr: string = str.split("").reverse().join("");
 
   if (reversedStr === str) {
